@@ -166,7 +166,6 @@ class WindTurbineFarm(object):
             # for each turbine, check the buffer
             start_time = time.time()
             for idx in range(self.n_turbines): 
-                print(idx)
                 buffer = self.get_raw_data(idx)
                 if len(buffer) >= self.min_num_samples:
                     # create a copy & prep the data
@@ -199,6 +198,8 @@ class WindTurbineFarm(object):
 
                         values = np.mean(pred_mae_loss, axis=1)
                         anomalies = (values > self.thresholds)
+                        
+                    print("detect anomalies: ", anomalies)
                         
             elapsed_time = time.time() - start_time
             time.sleep(0.5-elapsed_time)
