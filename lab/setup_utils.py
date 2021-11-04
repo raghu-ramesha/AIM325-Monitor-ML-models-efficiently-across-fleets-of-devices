@@ -250,6 +250,9 @@ def modify_device_role(iot_device_role_name):
         }''',
         RoleName=iot_device_role_name,
     )
+   
+    ## wait for 30 secs until IAM changes fully propogate
+    time.sleep(30)
     
     account_id = get_execution_role().split(":")[4]
     role_arn = f"arn:aws:iam::{account_id}:role/{iot_device_role_name}"
