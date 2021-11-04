@@ -39,11 +39,6 @@ def setup_roles_and_policies(iot_device_role_name):
         PolicyArn="arn:aws:iam::aws:policy/AWSGreengrassFullAccess"
     )
 
-    policy_attach_res = iam_client.attach_role_policy(
-        RoleName=role_name,
-        PolicyArn="arn:aws:iam::aws:policy/AWSIoTFullAccess"
-    )
-
     ec2_role_name = "EdgeManager-Demo-EC2-" + str(time.time()).split(".")[0]
 
     trust_relationship_ec2_service = {
@@ -201,7 +196,7 @@ def setup_roles_and_policies(iot_device_role_name):
     return ec2_role_name
 
     
-ddef modify_device_role(iot_device_role_name):
+def modify_device_role(iot_device_role_name):
     iam_client = boto3.client('iam')
     
     # Create a policy
