@@ -44,7 +44,7 @@ The workshop was configured as a [SageMaker Studio Project](https://docs.aws.ama
 ### What was created by the project?
 The following diagram shows which resources were deployed via CloudFormation by SageMaker projects when you create a new project based on the imported template:
 <p align="center">
-    <img src="imgs/EdgeManagerWorkshop_CFN.png"></img>
+    <img src="imgs/AIM325-Architecture.png"></img>
 </p>
 
 After a new project is created, CodePipeline will be triggered automatically to complete the setup of the environment, through the CodeBuild project. New resources will be created and configured by this process. [Click on the this link to open CodePipeline console and check the progress of this step](https://console.aws.amazon.com/codesuite/codepipeline/pipelines). A **.zip** file with the certificates and the configuration file for each Edge Manager device will be prepared and copied to the S3 bucket of the project, as you can see in the diagram bellow:
